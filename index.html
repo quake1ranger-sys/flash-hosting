@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <title>Talk Show Flash Player</title>
     <style>
         body { margin: 0; padding: 0; background-color: #000000; overflow: hidden; }
         #flash-container { width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; }
     </style>
-    <!-- Load the emulator -->
-    <script src="https://unpkg.com"></script>
+    
+    <!-- 1. PLACED RIGHT HERE INSIDE THE HEAD TAG -->
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 </head>
 <body>
     <div id="flash-container"></div>
@@ -16,11 +19,10 @@
             const player = ruffle.createPlayer();
             document.getElementById("flash-container").appendChild(player);
             
-            // Player sizing
+            // Adjust player dimensions to fit your SWF size
             player.style.width = "640px";  
             player.style.height = "480px"; 
             
-            // Loading the clean, space-free filename locally
             player.config = { autoplay: "on", allowScriptAccess: true };
             player.load("talkshow.swf"); 
         });
