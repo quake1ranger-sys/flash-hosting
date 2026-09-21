@@ -5,6 +5,7 @@
         body { margin: 0; padding: 0; background-color: #000000; overflow: hidden; }
         #flash-container { width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; }
     </style>
+    <!-- Load the emulator -->
     <script src="https://unpkg.com"></script>
 </head>
 <body>
@@ -14,10 +15,14 @@
             const ruffle = window.RufflePlayer.newest();
             const player = ruffle.createPlayer();
             document.getElementById("flash-container").appendChild(player);
-            player.style.width = "640px";  /* Adjust to your SWF actual width */
-            player.style.height = "480px"; /* Adjust to your SWF actual height */
+            
+            // Player sizing
+            player.style.width = "640px";  
+            player.style.height = "480px"; 
+            
+            // Loading the clean, space-free filename locally
             player.config = { autoplay: "on", allowScriptAccess: true };
-            player.load("talk show.swf"); // GitHub handles the space natively here
+            player.load("talkshow.swf"); 
         });
     </script>
 </body>
